@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form2</title>
+</head>
+
+<body>
+    <center>
+        <form method="" action="" name="r">
+            <h2>Registration Form</h2>
+            <hr>
+            <div class="t">
+                <table>
+                    <tr>
+                        <td><label>UserName: </label></td>
+                        <td>
+                            <input type="text" name="uname" placeholder="UserName">
+                            <span id="e"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Password: </label></td>
+                        <td><br>
+                            <input type="password" name="password">
+                            <span id="p"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>City of Employment</label></td>
+                        <td><br>
+                            <input type="textarea" size="50" name="city" placeholder="City of Employment">
+                            <span id="c"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Web server : </label></td>
+                        <td><br>
+                            <select name="server">
+                                <option value="select server">--Choose a server --</option>
+                                <option value="HTTP">Apache HTTP Server</option>
+                                <option value="IIS">Internet Information Services (IIS)</option>
+                                <option value="Lighttpd">Lighttpd</option>
+                                <option value="Java">Sun Java System Web Server</option>
+                                <option value="Jigsaw">Jigsaw Server</option>
+                            </select>
+                            <span id="s"></span>
+
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Please specify your role : </label></td>
+                        <td><br>
+                            <input type="radio" name="role" value="admin">Admin <br>
+                            <input type="radio" name="role" value="Engineer">Engineer<br>
+                            <input type="radio" name="role" value="Manager">Manager<br>
+                            <input type="radio" name="role" value="Guest">Guest<br><br>
+                            <span id="errrole"></span>
+                        </td>
+            
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <td><label>Single Sign-on to the following : </label></td>
+                        <td><br>
+                            <input type="checkbox" name="sign" value="Mail"> Mail <br>
+                            <input type="checkbox" name="sign" value="Payroll"> Payroll<br>
+                            <input type="checkbox" name="sign" value="Self"> Self-sevice <br><br>
+                            <span id="errsgn"></span>
+                        </td>
+            
+                    </tr>
+                    <tr>
+                        <td><label>Email Id: </label></td>
+                        <td><br>
+                            <input type="email" name="email" placeholder="example@gmail.com">
+                            <span id="e_i"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Mobile: </label></td>
+                        <td><br>
+                            <input type="text" name="mobile">
+                            <span id="m"></span>
+
+                        </td>
+                    </tr>
+            
+                    
+                </table>
+                <input type="button" name="submit" value="Login" onclick="validate()" class="s">
+                    <input type="reset" name="reset" value="Reset" onclick="validate()" class="s">
+            </div>
+        </form>
+    </center>
+    <p id="reg"></p>
+
+</body>
+<script>
+    function validate() 
+    {
+        let val = " "
+        let uname = document.r.uname.value;
+        let password = document.r.password.value;
+        let city = document.r.city.value;
+        let role = document.r.role;
+        let email = document.r.email.value;
+        let mobile = document.r.mobile.value;
+        let server = document.r.server.value;
+        let sign = document.r.sign;
+        isError= false;
+        let error = ""
+        if(uname == "" || uname.trim().length == 0){
+            document.getElementById('e').innerHTML = " * User name is Required.."
+    
+        }
+        if (document.r.uname.value) {
+            console.log(uname.value)
+            val = val + "UserName :  " + uname + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if(password == "" || password.trim().length == 0){
+            document.getElementById('p').innerHTML = " *Password is Required.."
+        }
+
+        if(city == "" || city.trim().length == 0){
+            document.getElementById('c').innerHTML = " * City is Required.."
+        }
+        if (document.r.city.value) {
+            console.log(city.value)
+            val = val + "City of Employment :  " + city + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        choice = document.r.role.value;
+        if (choice == "admin") {
+            console.log(role.value)
+            val = val + "Your role :" + role.value + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if (choice == "Engineer") {
+            console.log(role.value)
+            val = val + "Your role :" + role.value + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if (choice == "Manager") {
+            console.log(role.value)
+            val = val + "Your role :" + role.value + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if (choice == "Guest") {
+            console.log(role.value)
+            val = val + "Your role :" + role.value + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        let rle = document.r
+        let cnt = 0
+        let rVal = ""
+        for (i=0;i<rle.role.length;i++) {
+            if (rle.role[i].checked) {
+                cnt++
+                rle = rle.role[i].value;
+                console.log(cnt)
+                // isError = true
+            }
+        }
+        if(cnt == 0){
+            document.getElementById('errrole').innerHTML = " *Role is Required"
+            isError = true
+        }
+        if(email == "" || email.trim().length == 0){
+            document.getElementById('e_i').innerHTML = " *Email id is Required........"
+        }
+        if (document.r.email.value) {
+            console.log(email.value)
+            val = val + "EMAIL : " + email + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if(mobile == "" || mobile.trim().length == 0){
+            document.getElementById('m').innerHTML = " *Mobile number is Required.."
+        }
+        // if(mobile.length > 10 || mobile.length<10)
+        // {
+        //     document.getElementById('m').innerHTML = " *Please enter valid number"   
+        // }
+
+        if (document.r.mobile.value) {
+            console.log(mobile.value)
+            val = val + "MOBILE NUMBER : " + mobile + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if(server == "select server" || server.trim().length == 0){
+            document.getElementById('s').innerHTML = " *server is Required.."
+        }
+        txt = document.r.server.value;
+        if (txt == "HTTP") {
+            console.log(server.value)
+            val = val + "WEB SERVER : " + server + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if (txt == "IIS") {
+            console.log(server.value)
+            val = val + "WEB SERVER : " + server + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if (txt == "Lighttpd") {
+            console.log(server.value)
+            val = val + "WEB SERVER : " + server + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if (txt == "Java") {
+            console.log(server.value)
+            val = val + "WEB SERVER : " + server + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+        if (txt == "Jigsaw") {
+            console.log(server.value)
+            val = val + "WEB SERVER : " + server + "<br>"
+            document.getElementById("reg").innerHTML = val
+        }
+
+       
+        let sgn = document.r
+        let cntr = 0
+        let sVal = ""
+
+        for(i=0;i<sgn.sign.length;i++){
+            if(sgn.sign[i].checked){
+                cntr++
+                sVal = sVal+" "+ sgn.sign[i].value
+            }
+        }
+        if(cntr == 0){
+            document.getElementById('errsgn').innerHTML = " *Sign is Required "
+            isError = true
+        }
+        for (i = 0; i < document.r.sign.length; i++) {
+          
+            nxt = document.r.sign[i].value
+
+            if (document.r.sign[i].checked) {
+                
+
+                if (nxt == "Mail") {
+                    console.log(sign[i].value)
+                    val = val + "Single Sign-on : " + sign[i].value + "<br>"
+                    document.getElementById("reg").innerHTML = val
+                }
+                if (nxt == "Payroll") {
+                    console.log(sign[i].value)
+                    val = val + "Single Sign-on : " + sign[i].value + "<br>"
+                    document.getElementById("reg").innerHTML = val
+                }
+                if (nxt == "Self") {
+                    console.log(sign[i].value)
+                    val = val + "Single Sign-on : " + sign[i].value + "<br>"
+                    document.getElementById("reg").innerHTML = val
+                }
+            }
+           
+        }
+        if(isError){
+            alert(error)
+        }
+    }
+    
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .box1{
+            background-color: rgb(223, 221, 217) ;
+            width: 300px;
+            height: 200px;
+            /* margin: auto; */
+            position: relative;
+            top: 207px;
+            left: 520px;
+        }
+        .login{
+            position: relative;
+            top: 44px;
+            left: 2px;
+            font-family:'Josefin Sans', sans-serif;;
+        }
+        .p{
+            position: relative;
+            top: 40px;
+            left: 5px;
+           font-family:'Bebas Neue', cursive;
+        }
+        .box2{
+            position: relative;
+            top: -45px;
+            left: 821px;
+            background-color:#000000e7 ;
+            color: ghostwhite;
+            width: 275px;
+            height: 265px;
+            /* border-radius: 3px;
+            box-shadow: -1px 0px 9px 2px black;  */
+
+        }
+        .box2:hover{
+            position: relative;
+            top: -45px;
+            left: 821px;
+            background-color:#5f2020e7 ;
+            color: ghostwhite;
+            width: 275px;
+            height: 265px;
+            border-radius: 3px;
+            box-shadow: -1px 0px 15px 5px black; 
+            transition: 1s;
+
+        }
+        .tbl{
+            width: auto;
+            top: 100px;
+            left: 100px;
+        }
+        .frm{
+            width: auto;
+            position: relative;
+            top: 0px;
+            left: -40px;
+            margin: 20%;
+            margin-top: 20px;
+            padding: 30px;
+            padding-right: 10px;
+
+        }
+        .ml{
+            padding: 10px;
+        }
+        .css1{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body bgcolor="darkgrey">
+    <div class="box1">
+        <h1 align="center" class="login">Login</h1>
+        <p class="p">
+            By logging in you agree to the ridiculously long terms that you didn't bother to read
+        </p>
+    </div>
+    <div class="box2">
+        <form class="frm" align="center">
+            <table class="tbl">
+                <tr>
+                    <td align="center" class="ml">
+                       <b> Member Login</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Name" class="css1"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Password" class="css1"></td>
+                <tr>
+                    <td><input type="button" value="Login" class="css1" style="background-color: darkcyan;color: floralwhite;"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form name="f">
+        <table >
+            <tr>
+                <td>
+                    UserName::
+                </td>
+                <td>
+                    <input type="text" name="fname" placeholder="Enter your UserId">
+                    <span id="valuser"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password::
+                </td>
+                <td>
+                    <input type="password" name="pass" placeholder="Enter your Password"> <span id="valpass"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Confirm Password::
+                </td>
+                <td>
+                    <input type="password" name="cpass" placeholder="Enter your Password"> <span id="valcpass"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    City<br> of Employment::
+                </td>
+                <td>
+                    <input type="text" name="city" placeholder="Enter your City"><span id="valcity"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td>
+                    <input type="text" name="Connumber" placeholder="Enter your Contact Number"> <span id="valnumber"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enter Your Spi Report
+                </td>
+                <td>
+                    <input type="text" name="spi" placeholder="Enter Your Spi">
+                    <input type="submit" value="Set" onclick="Setvalue()">
+                </td>
+            </tr>
+            <tr>
+                <td>                
+                <br>
+                <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Web Server
+                </td>
+                <td>
+                    <select name="n" id="">
+                        <option value="sel">---SELECT---</option>
+                        <option value="ind">INDIA</option>
+                        <option value="usa">USA</option>
+                        <option value="aus">AUSTRALIA</option>
+                        <option value="af">AFRICA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>                
+                <br>
+                <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Please specify <br>your role
+                </td>
+                <td>
+                    <input type="radio" name="h" value="admin">Admin <br>
+                    <input type="radio" name="h" value="engineer">Engineer <br>
+                    <input type="radio" name="h" value="manager">Manager <br>
+                    <input type="radio" name="h" value="guest">Guest <br> 
+                </td>
+            </tr>
+            <tr>
+                <td>                
+                <br>
+                <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Single Sign-in on <br>to the Following
+                </td>
+                <td>
+                    <input type="checkbox" name="i" value="mail">MAIL <br>
+                    <input type="checkbox" name="i" value="payroll">PAYROLL <br>
+                    <input type="checkbox" name="i" value="self">SELF-SERVICE <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="LOGIN" onclick="validate()">
+                </td>
+                <td>
+                    <input type="reset" value="RESET" onclick="validate()">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <p id="ans"></p>
+</body>
+<script>
+    let a=[]
+    function validate()
+    {
+        let val=""
+        let char=document.f.fname.value
+        if(char=="" || char.trim().length<=0)
+        {
+            document.getElementById("valuser").innerHTML=" *Please Enter the username"
+        }
+        console.log(char)
+        val=val+"Name= "+char+"<br>"
+        document.getElementById("ans").innerHTML=val
+        let char1=document.f.pass.value
+        if (char1=="" || char1.trim().length<=0) {
+            document.getElementById("valpass").innerHTML=" *Please Enter your Password"
+        }
+        console.log(char1)
+        val=val+"Password= "+char1+"<br>"
+        document.getElementById("ans").innerHTML=val
+        let char2=document.f.city.value
+        if (char2=="" || char2.trim().length<=0) {
+            document.getElementById("valcity").innerHTML=" *Please Enter your City"
+        }
+        let char7=document.f.cpass.value
+        if(char7=="" || char7.trim().value<=0|| char7!=char1)
+        {
+            document.getElementById("valcpass").innerHTML=" *Password Not match"
+        }
+        console.log(char2)
+        val=val+"Employemnt city= "+char2+"<br>"
+        document.getElementById("ans").innerHTML=val
+        var char8=document.f.Connumber.value
+        console.log(char8)
+        if(char8=="" || char8.trim().length<=0)
+        {
+            document.getElementById("valnumber").innerHTML=" *Enter your contact number"
+        }
+        else(char8.length>10 && char8.length<10)
+        {
+            document.getElementById("valnumber").innerHTML=" *Enter valid contact detail"
+        }
+        let ch3=document.f.n.value
+        if(ch3=='ind')
+        {
+            val=val+"Web Server= "+"INDIA"+"<br>"
+            console.log(ch3)
+            document.getElementById("ans").innerHTML=val
+        }
+        if(ch3=='usa')
+        {
+            val=val+"Web Server= "+"USA"+"<br>"
+            console.log(ch3)
+            document.getElementById("ans").innerHTML=val
+        }
+        if(ch3=='aus')
+        {
+            val=val+"Web Server= "+"AUSTRALIA"+"<br>"
+            console.log(ch3)
+            document.getElementById("ans").innerHTML=val
+        }
+        if(ch3=='af')
+        {
+            val=val+"Web Server="+"AFRICA"+"<br>"
+            console.log(ch3)
+            document.getElementById("ans").innerHTML=val
+        }
+        let ch4=document.f.h.value
+        if(ch4=='admin')
+        {
+            val=val+"Your Role= ADMIN<br>"
+            console.log(ch4)
+            document.getElementById("ans").innerHTML=val
+        }
+        if(ch4=='engineer')
+        {
+            val=val+"Your Role= ENGINEER<br>"
+            console.log(ch4)
+            document.getElementById("ans").innerHTML=val
+        }
+        if(ch4=='manager')
+        {
+            val=val+"Your Role= MANAGER<br>"
+            console.log(ch4)
+            document.getElementById("ans").innerHTML=val
+        }
+        if(ch4=='guest')
+        {
+            val=val+"Your Role= GUEST<br>"
+            console.log(ch4)
+            document.getElementById("ans").innerHTML=val
+        }
+        for(let j=0;j<document.f.i.length;j++)
+        {
+            if(document.f.i[j].checked)
+            {
+                let ch5=document.f.i[j].value
+                if(ch5=='mail')
+                {
+                    val=val+"Your Sign_in= Mail<br>"
+                    console.log(ch5)
+                    document.getElementById("ans").innerHTML=val
+                }
+                if(ch5=='payroll')
+                {
+                    val=val+"Your Sign_in= Payroll<br>"
+                    console.log(ch5)
+                    document.getElementById("ans").innerHTML=val
+                }
+                if(ch5=='self')
+                {
+                    val=val+"Your Sign_in= SELF-SERVICE<br>"
+                    console.log(ch5)
+                    document.getElementById("ans").innerHTML=val
+                }
+            }
+        }
+        val=val+"Your all Time Spi is="+a
+        document.getElementById("ans").innerHTML=val
+
+    }
+    function Setvalue() 
+    {
+        let ch6=document.f.spi.value
+        if(ch6>10)
+        {
+            alert("Please Insert a value Less Than 10")
+        }
+        else
+        {
+            a.push(ch6)   
+            console.log(a) 
+        }  
+    }
+</script>
+</html>
